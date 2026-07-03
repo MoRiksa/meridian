@@ -147,6 +147,11 @@ function isThinkingModeToolChoiceError(error) {
   return /thinking mode does not support/i.test(message) && /tool_choice/i.test(message);
 }
 
+function shouldAvoidRequiredToolChoice(modelName) {
+  const id = String(modelName || "").toLowerCase();
+  return /deepseek-v4/.test(id);
+}
+
 /**
  * Core ReAct agent loop.
  *
@@ -201,6 +206,9 @@ export async function agentLoop(goal, maxSteps = config.llm.maxSteps, sessionHis
       // Force a tool call on step 0 for action intents — prevents the model from inventing deploy/close outcomes
       const ACTION_INTENTS = /\b(deploy|open|add liquidity|close|exit|withdraw|claim|swap|block|unblock)\b/i;
       let toolChoice = (step === 0 && (ACTION_INTENTS.test(goal) || mustUseRealTool)) ? "required" : "auto";
+      if (toolChoice === "required" && shouldAvoidRequiredToolChoice(activeModel)) {
+        toolChoice = "auto";
+      }
 
       for (let attempt = 0; attempt < 3; attempt++) {
         try {
