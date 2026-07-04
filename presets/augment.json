@@ -1,0 +1,15 @@
+{
+  "name": "augment",
+  "label": "Augment (optimasi)",
+  "description": "Preset hasil backtest: bin lebar tahan-dump (Meridian) + filter fee/TVL ketat (prediktor #1 menang) + trailing kunci profit + stop menengah + maxSteps lebih tinggi. bins 35-69, fee/TVL>=0.10, trailing 3%/1.25%, SL -15%, maxSteps 12.",
+  "overrides": {
+    "minBinsBelow": 35,
+    "maxBinsBelow": 69,
+    "defaultBinsBelow": 69,
+    "trailingTriggerPct": 3,
+    "trailingDropPct": 1.25,
+    "stopLossPct": -15,
+    "minFeeActiveTvlRatio": 0.10,
+    "maxSteps": 12
+  }
+}
