@@ -1,4 +1,5 @@
 import "./envcrypt.js";
+import { updateShadowSim } from "./shadow-sim.js";
 import cron from "node-cron";
 import readline from "readline";
 import path from "path";
@@ -731,6 +732,7 @@ Summarize the current portfolio health, total fees earned, and performance of al
     try {
       const result = await getMyPositions({ force: true, silent: true }).catch(() => null);
       if (!result?.positions?.length) return;
+      try { updateShadowSim(result.positions); } catch (e) { /* shadow-sim tak boleh memecahkan poll */ }
       for (const p of result.positions) {
         confirmPeak(p.position, p.pnl_pct, confirmTicks);
 
