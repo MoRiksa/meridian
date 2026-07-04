@@ -1,0 +1,13 @@
+{
+  "name": "meridian",
+  "label": "Meridian (default)",
+  "description": "Setelan default & paling aman: rentang lebar, kunci profit sabar, stop longgar. bins 35-69, trailing 3%/1.5%, SL -50%",
+  "overrides": {
+    "minBinsBelow": 35,
+    "maxBinsBelow": 69,
+    "defaultBinsBelow": 69,
+    "trailingTriggerPct": 3,
+    "trailingDropPct": 1.5,
+    "stopLossPct": -50
+  }
+}

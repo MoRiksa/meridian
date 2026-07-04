@@ -1,0 +1,13 @@
+{
+  "name": "arcana",
+  "label": "Arcana (menengah)",
+  "description": "Fee-farming lebih pekat + kunci profit dini + stop ketat, tapi masih ada bantalan turun. bins 35, trailing 1%/1.25%, SL -7%",
+  "overrides": {
+    "minBinsBelow": 35,
+    "maxBinsBelow": 35,
+    "defaultBinsBelow": 35,
+    "trailingTriggerPct": 1,
+    "trailingDropPct": 1.25,
+    "stopLossPct": -7
+  }
+}

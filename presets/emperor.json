@@ -1,0 +1,13 @@
+{
+  "name": "emperor",
+  "label": "Emperor (agresif)",
+  "description": "Paling pekat: fee maksimal per dolar, bantalan turun tipis, stop cepat. bins 20 (butuh MIN_SAFE_BINS_BELOW=20), trailing 1%/1.25%, SL -7%",
+  "overrides": {
+    "minBinsBelow": 20,
+    "maxBinsBelow": 20,
+    "defaultBinsBelow": 20,
+    "trailingTriggerPct": 1,
+    "trailingDropPct": 1.25,
+    "stopLossPct": -7
+  }
+}
